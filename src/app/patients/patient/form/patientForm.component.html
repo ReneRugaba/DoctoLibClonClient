@@ -1,0 +1,30 @@
+<form class="needs-validation"  (ngSubmit)="register()">
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom01">Nom</label>
+      <input type="text" class="form-control" id="validationCustom01" value="{{patient.nom | uppercase}}" value="Otto" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom02">Prenom</label>
+      <input type="text" class="form-control " id="validationCustom02" value="{{patient.prenom | titlecase}}" value="Otto" required>
+    </div>
+    <div class="col-md-12 mb-3">
+      <label for="validationCustomUsername">email</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+        </div>
+        <input type="text" class="form-control" id="validationCustomUsername" value="{{patient.email}}" aria-describedby="inputGroupPrepend" required>
+      </div>
+
+    </div>
+    <div class="col-md-12 mb-3">
+      <label for="validationCustom02">Date de naissance</label>
+      <input type="date" class="form-control " id="validationCustom02" value="{{patient.dateNaissance}}" value="Otto" required>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="modal.close('Save click')">Soumettre</button>
+</form>

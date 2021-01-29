@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -89,7 +90,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           }
         },
         "lint": {
@@ -120,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "DoctolibClonClient"
+  "defaultProject": "DoctolibClonClient",
+  "cli": {
+    "analytics": "418d7307-73bb-42b2-b44e-c3e3ab9730d3"
+  }
 }

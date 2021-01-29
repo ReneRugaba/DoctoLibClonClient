@@ -1,0 +1,36 @@
+<div class="media mt-5">
+  <div class="media-body">
+    <h5 class="mt-0">NOM: <span class="text-info">{{patient.nom | uppercase}}</span></h5>
+    <h5 class="mt-0">Prenom: <span class="text-info">{{patient.prenom | titlecase}}</span></h5>
+    <h5>Date de naissance: <span class="text-info">{{patient.dateNaissance}}</span></h5>
+    <address>
+      <strong>Adresse E-mail</strong><br>
+      <a href="mailto:{{patient.email}}">{{patient.email}}</a>
+    </address>
+    <div class="row">
+      <div class="col-md-4">
+      <address>
+        <h6>Numéro de rue: <span class="text-info">{{patient.adresse.numRue }}</span></h6>
+        <h6>Rue: <span class="text-info">{{patient.adresse.rue | titlecase}}</span></h6>
+        <p>Code Postal: <span class="text-info">{{patient.adresse.codePostal}}</span></p>
+        <p >VILLE: <span class="text-info">{{patient.adresse.ville | uppercase}}</span></p><br>
+      </address>
+      </div>
+    </div>
+    <div>
+      <ng-template #content let-modal>
+        <div class="modal-header bg-primary text-warning border-primary">
+          <h4 class="modal-title" id="modal-basic-title">Modification données personnels</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <patient-Form [patient]="patient" [modal]="modal"></patient-Form>
+        </div>
+      </ng-template>
+      <button class="btn btn-lg btn-outline-primary shadow-lg" (click)="open(content)">Modifier</button>
+      <hr>
+    </div>
+  </div>
+</div>
