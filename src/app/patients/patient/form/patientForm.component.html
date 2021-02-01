@@ -1,29 +1,33 @@
-<form class="needs-validation"  (ngSubmit)="register()">
+<form class="needs-validation"  (ngSubmit)="register(monForm.value)" #monForm = "ngForm">
   <div class="form-row">
     <div class="col-md-6 mb-3">
-      <label for="validationCustom01">Nom</label>
-      <input type="text" class="form-control" id="validationCustom01" value="{{patient.nom | uppercase}}" value="Otto" required>
+      <label for="validationCustom01" >Nom</label>
+      <input type="text" class="form-control" id="validationCustom01"
+      value="{{patientClone.nom | uppercase}}" value="Otto" required name="nom"   [(ngModel)]="patientClone.nom">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-6 mb-3">
-      <label for="validationCustom02">Prenom</label>
-      <input type="text" class="form-control " id="validationCustom02" value="{{patient.prenom | titlecase}}" value="Otto" required>
+      <label for="validationCustom02" >Prenom</label>
+      <input type="text" class="form-control " id="validationCustom02"
+      value="{{patientClone.prenom | titlecase}}" value="Otto" required name="prenom"  [(ngModel)]="patientClone.prenom">
     </div>
     <div class="col-md-12 mb-3">
-      <label for="validationCustomUsername">email</label>
+      <label for="validationCustomUsername" >email</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend">@</span>
         </div>
-        <input type="text" class="form-control" id="validationCustomUsername" value="{{patient.email}}" aria-describedby="inputGroupPrepend" required>
+        <input type="text" class="form-control" id="validationCustomUsername"
+         value="{{patientClone.email}}" aria-describedby="inputGroupPrepend" name="email" required  [(ngModel)]="patientClone.email">
       </div>
 
     </div>
     <div class="col-md-12 mb-3">
       <label for="validationCustom02">Date de naissance</label>
-      <input type="date" class="form-control " id="validationCustom02" value="{{patient.dateNaissance}}" value="Otto" required>
+      <input type="date" class="form-control " id="validationCustom02"
+      value="{{patientClone.dateNaissance}}" value="Otto" required name="dateNaissance" [(ngModel)]="patientClone.dateNaissance">
     </div>
   </div>
   <button class="btn btn-primary" type="submit" (click)="modal.close('Save click')">Soumettre</button>

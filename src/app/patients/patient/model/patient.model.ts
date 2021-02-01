@@ -9,6 +9,6 @@ export interface Patient{
     codePostal: number,
     ville: string
     };
-  dateNaissance: string;
+  dateNaissance: Date;
   email: string;
 }

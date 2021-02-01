@@ -107,7 +107,7 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "DoctolibClonClient:serve"

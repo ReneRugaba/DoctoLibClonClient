@@ -1,8 +1,9 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>
 <div class="media mt-5">
-  <div class="media-body">
+  <div class="media-body" *ngIf="patient">
     <h5 class="mt-0">NOM: <span class="text-info">{{patient.nom | uppercase}}</span></h5>
     <h5 class="mt-0">Prenom: <span class="text-info">{{patient.prenom | titlecase}}</span></h5>
-    <h5>Date de naissance: <span class="text-info">{{patient.dateNaissance}}</span></h5>
+    <h5>Date de naissance: <span class="text-info">{{patient.dateNaissance }}</span></h5>
     <address>
       <strong>Adresse E-mail</strong><br>
       <a href="mailto:{{patient.email}}">{{patient.email}}</a>
@@ -26,7 +27,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <patient-Form [patient]="patient" [modal]="modal"></patient-Form>
+          <patient-Form [patientClone]=" getClone()" [modal]="modal"></patient-Form>
         </div>
       </ng-template>
       <button class="btn btn-lg btn-outline-primary shadow-lg" (click)="open(content)">Modifier</button>

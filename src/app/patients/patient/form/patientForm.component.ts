@@ -1,4 +1,6 @@
+import { PatientService } from './../../Service/patient.service';
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -7,16 +9,16 @@ import { Component, Input } from '@angular/core';
 })
 
 export class patientFormComponent{
-  @Input() patient;
+  @Input() patientClone;
   @Input() modal;
   nom: string;
   prenom: string;
   email: string;
-  dateNaissance: string;
+  dateNaissance: Date;
 
-  constructor(){}
+  constructor(private service: PatientService){}
 
-  register(){
-    console.log(this.patient.id);
+  register(form: FormGroup){
+    this.service.updatepatient(this.patientClone.id, form);
   }
 }

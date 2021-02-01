@@ -1,3 +1,5 @@
+import { ConsultationPatient } from './../model/ConsultationPatient.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,9 @@ import { Injectable } from '@angular/core';
 })
 export class RdvService {
 
-  constructor() { }
+  constructor(private httpcl: HttpClient) { }
+
+  getRdvPatient(){
+    return this.httpcl.get<ConsultationPatient[]>('http://127.0.0.1:8000/patients/3/consultations');
+  }
 }

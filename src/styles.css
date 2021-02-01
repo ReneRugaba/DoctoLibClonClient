@@ -4,3 +4,7 @@
 *{
   font-family: 'Noto Serif', serif;
 }
+
+body {
+  overflow-x: hidden;
+}

@@ -1,18 +1,19 @@
-<div class="row">
-  <div class="col-8 mx-auto d-block">
+<div class="row mt-5 ">
+  <div class="col-8 mx-auto d-block mt-5">
     <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Profil</a>
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}"
+      routerLinkActive="active">
+        <a class="nav-link" routerLink="">Profil</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" href="#">Prendre rendez vous médical</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Voir vos rendez-vous</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/rdvPatient">Voir vos rendez-vous</a>
       </li>
     </ul>
     <div>
-      <app-patient></app-patient>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

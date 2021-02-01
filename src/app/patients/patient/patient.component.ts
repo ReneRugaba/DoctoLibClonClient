@@ -1,7 +1,10 @@
+import { cloneDeep } from 'lodash';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Patient } from './model/patient.model';
 import { PatientService } from './../Service/patient.service';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 
 @Component({
@@ -11,14 +14,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
   patient: Patient;
+  patientClone: Patient;
   closeResult = '';
-  constructor(private PatientSer: PatientService, private modalService: NgbModal) { }
+  constructor(private PatientSer: PatientService, private modalService: NgbModal,
+              private spiner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spiner.show();
     this.PatientSer.getpatient().subscribe((Object) => {
-      console.log(Object);
       this.patient = Object;
+      this.spiner.hide();
     });
+
+
   }
 
   open(content) {
@@ -27,6 +35,9 @@ export class PatientComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+  }
+  getClone(){
+    return this.patientClone = cloneDeep(this.patient);
   }
 
   private getDismissReason(reason: any): string {
