@@ -1,0 +1,46 @@
+<form class="form-inline" (ngSubmit) ="registerForm(monForm.value)"  #monForm = "ngForm">
+  <select class="form-control mr-sm-2" aria-label="Default select example" name="specialite" ngModel>
+    <option value="GENERALISTE" selected>GENERALISTE</option>
+    <option value="DENTISTE">DENTISTE</option>
+    <option value="KINESITHERAPEUTES">KINESITHERAPEUTES</option>
+    <option value="PSYCOLOGUE">PSYCOLOGUE</option>
+    <option value="PEDIATRE">PEDIATRE</option>
+  </select>
+  <input class="form-control mr-sm-2" type="search" name="ville" placeholder="Ville" aria-label="Search" ngModel>
+  <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Rechercher</button>
+  <!-- error message -->
+  <div  *ngIf="error" class="bg-warning mt-3 text-center text-danger">
+    <div>
+      Nous n'avons pour le moment aucun médecin dans cette ville!
+    </div>
+  </div>
+<!-- error message -->
+</form>
+
+<diV class="row">
+  <div class="col-5">
+    <div *ngIf="practiciens">
+      <div class="col-12"  *ngFor="let value of practiciens">
+        <div class="card border-dark mt-3 shadow-lg  mb-3" style="max-width: 18rem;">
+          <div class="card-body text-dark">
+            <h5 class="card-title">Nom: <span class="text-info">{{value.nom | titlecase}}</span></h5>
+            <h5 class="card-title">Prenom: <span class="text-info">{{value.prenom | titlecase}}</span></h5>
+            <address>
+              <h6>Numéro de rue: <span class="text-info">{{value.idAdresse.numRue }}</span></h6>
+              <h6>Rue: <span class="text-info">{{value.idAdresse.rue | titlecase}}</span></h6>
+              <p>Code Postal: <span class="text-info">{{value.idAdresse.codePostal}}</span></p>
+              <p >VILLE: <span class="text-info">{{value.idAdresse.ville | uppercase}}</span></p><br>
+            </address>
+          </div>
+          <div class="card-footer bg-transparent border-success">
+          <button type="submit" class="col-12 btn btn-primary" (click)='storage(value)'  routerLink="prendreRdv">Prendre rendez-vous</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-4">
+      <router-outlet></router-outlet>
+  </div>
+</diV>

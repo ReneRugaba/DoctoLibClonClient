@@ -12,7 +12,7 @@ export class PatientService {
   constructor(private httpCl: HttpClient) { }
 
   getpatient(){
-    const opt = {params: new HttpParams({fromString: 'nom=nomtest2'})};
+    const opt = {params: new HttpParams({fromString: 'nom=nomtest6'})};
     return this.httpCl.get<Patient>('http://127.0.0.1:8000/patients', opt);
   }
 
