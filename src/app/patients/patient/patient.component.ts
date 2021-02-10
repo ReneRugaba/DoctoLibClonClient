@@ -21,10 +21,9 @@ export class PatientComponent implements OnInit {
 
   ngOnInit(): void {
     this.spiner.show();
-    this.PatientSer.getpatient().subscribe((Object) => {
-      this.patient = Object;
-      this.spiner.hide();
-    });
+    this.patient = this.PatientSer.getpatient();
+    this.spiner.hide();
+
 
 
   }

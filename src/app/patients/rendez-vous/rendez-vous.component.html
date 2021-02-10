@@ -1,11 +1,16 @@
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise"></ngx-spinner>
-<div *ngFor="let value of consultationPatient">
-  <div class="media border shadow-lg m-3 ">
-    <div class="media-body py-5 pl-5">
-      <h5 class="mt-0">Nom médecin: <span class="text-info">{{value.practicien | uppercase}}</span></h5>
-      <div class="row">
-        <div class="col-8"><h5>Date rendez-vous: <span class="text-info">{{ value.dateRdv }}</span></h5></div>
-        <div class="col-4"><button type="submit" class="btn btn-danger mr-3 ">X</button> <button type="submit" class="btn btn-primary">Update</button></div>
+<div class="alert alert-danger mt-3 text-center" role="alert" *ngIf="error">
+  <h5>Vous n'avez pas de rendez-vous de prévu!</h5>
+</div>
+<div *ngIf="!error">
+  <div *ngFor="let value of consultationPatient">
+    <div class="media border shadow-lg m-3 ">
+      <div class="media-body py-5 pl-5">
+        <h5 class="mt-0">Nom médecin: <span class="text-info">{{value.practicien | uppercase}}</span></h5>
+        <div class="row">
+          <div class="col-8"><h5>Date rendez-vous: <span class="text-info">{{ value.dateRdv }}</span></h5></div>
+          <div class="col-4"><button type="submit" class="btn btn-danger mr-3 ">X</button> <button type="submit" class="btn btn-primary">Update</button></div>
+        </div>
       </div>
     </div>
   </div>

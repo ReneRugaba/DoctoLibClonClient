@@ -10,6 +10,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class RendezVousComponent implements OnInit {
   consultationPatient: ConsultationPatient[];
+  error;
   constructor(private service: RdvService, private spiner: NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -17,7 +18,12 @@ export class RendezVousComponent implements OnInit {
     this.service.getRdvPatient().subscribe((array) => {
       this.consultationPatient = array;
       this.spiner.hide();
-    });
+    }, error => {
+      this.error = error;
+      this.spiner.hide();
+    }
+
+    );
   }
 
 }

@@ -1,0 +1,20 @@
+<diV class="container mt-5">
+  <div class="row">
+    <div class="col-12 mx-auto d-block mt-5">
+     <div>
+      <form class="col-4 mx-auto d-block"(ngSubmit)="login(monformlog.value)" #monformlog="ngForm">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" ngModel>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" ngModel>
+        </div>
+        <button type="submit" class="btn btn-primary col-12">Submit</button>
+      </form>
+     </div>
+    </div>
+  </div>
+</diV>

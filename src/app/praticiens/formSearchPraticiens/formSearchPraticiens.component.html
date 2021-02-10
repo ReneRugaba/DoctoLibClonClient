@@ -9,9 +9,9 @@
   <input class="form-control mr-sm-2" type="search" name="ville" placeholder="Ville" aria-label="Search" ngModel>
   <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Rechercher</button>
   <!-- error message -->
-  <div  *ngIf="error" class="bg-warning mt-3 text-center text-danger">
-    <div>
-      Nous n'avons pour le moment aucun médecin dans cette ville!
+  <div  *ngIf="error" class="text-danger  mt-3 text-center">
+    <div class="alert alert-danger" role="alert">
+      <h1>Nous n'avons pour le moment aucun médecin dans cette ville!</h1>
     </div>
   </div>
 <!-- error message -->

@@ -4,7 +4,7 @@ import { patientFormComponent } from './patients/patient/form/patientForm.compon
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PatientService } from './patients/Service/patient.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { PatientsComponent } from './patients/patients.component';
@@ -21,10 +21,13 @@ import { AgmCoreModule } from '@agm/core';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { serviceStorage } from './service/serviceStorage.service';
 import { errorMonitor } from 'events';
+import { LoginComponent } from './login/login.component';
+
 
 
 
 export const ROUTES: Routes = [
+  {path: 'login', component: LoginComponent},
   {path: 'patients', component: PatientsComponent,
     children: [
       {path: 'patient', component: PatientComponent},
@@ -49,6 +52,8 @@ export const ROUTES: Routes = [
     PatientComponent,
     patientFormComponent,
     formSearchPraticiens,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
