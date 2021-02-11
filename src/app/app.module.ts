@@ -62,7 +62,7 @@ export const ROUTES: Routes = [
     FormsModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, {onSameUrlNavigation: 'reload'}),
     StorageServiceModule
   ],
   providers: [

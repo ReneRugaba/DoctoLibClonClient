@@ -10,13 +10,20 @@ import { NumberLiteralType } from 'typescript';
 })
 export class PatientService {
   id;
-  constructor(private httpCl: HttpClient, private service: serviceStorage) { }
+  token;
+  constructor(private httpCl: HttpClient, private service: serviceStorage, private storage: serviceStorage) { }
 
   getpatient(){
     return this.service.get('currentUser');
   }
 
   updatepatient (id: number, newPatient: {}){
-    this.httpCl.put<any>('http://127.0.0.1:8000/patients/' + id, newPatient).subscribe();
+    this.token = this.storage.get('token').token;
+    return this.httpCl.put<any>('http://127.0.0.1:8000/patients/' + id, newPatient,
+    {headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.token
+    }}
+    );
   }
 }

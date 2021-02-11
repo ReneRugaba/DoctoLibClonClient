@@ -2,9 +2,10 @@
 <div class="position-fixed mt-3" *ngIf="getPraticien()">
   <h5>Prise de rendez-vous medical: </h5>
   <h6>Nom médecin: <span class="text-info" [textContent]= 'getPraticien()'></span></h6>
-  <form class="mt-3"  #monDateForm="ngForm">
-    <input type="date" name="date" class="form-control">
-    <input type="time" name="time" class="form-control mt-2">
+  <form class="mt-3" (ngSubmit)="registerRdv(monDateForm.value)"  #monDateForm="ngForm">
+    <input type="date" name="date" class="form-control" ngModel>
+    <input type="time" name="time" class="form-control mt-2" ngModel>
     <button type="submit" class="btn btn-success col-12 mt-3">Soumettre</button>
   </form>
 </div>
+
