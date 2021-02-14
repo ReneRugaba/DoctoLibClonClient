@@ -4,6 +4,14 @@
   <a class="navbar-brand text-warning doctolib" href="#">
     DoctoLib-Clone
   </a>
+ <div>
+  <button type="button" *ngIf="boutonConnect.status == true" routerLink="patients/patient" class="btn btn-warning mr-3 text-white">Profil</button>
+  <button type="button" *ngIf="boutonConnect.status == false" (click)="inscription()" class="btn btn-dark mr-3">Inscription</button>
+  <button type="button" (click)="deconnexion()" [ngClass]="{
+                                  'btn': true,
+                                  'btn-success': boutonConnect.status == false,
+                                  'btn-danger': boutonConnect.status == true}" >{{boutonConnect.content}}</button>
+ </div>
 </nav>
 </header>
 <main>

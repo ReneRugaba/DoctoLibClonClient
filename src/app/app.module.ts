@@ -1,3 +1,4 @@
+import { Gardservice } from './Gardservice.guard';
 import { ErrorsinterceptorService } from './errorsinterceptor.service';
 import { formSearchPraticiens } from './praticiens/formSearchPraticiens/formSearchPraticiens.component';
 import { patientFormComponent } from './patients/patient/form/patientForm.component';
@@ -28,7 +29,7 @@ import { LoginComponent } from './login/login.component';
 
 export const ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'patients', component: PatientsComponent,
+  {path: 'patients', component: PatientsComponent, canActivate: [Gardservice],
     children: [
       {path: 'patient', component: PatientComponent},
       {path: 'praticiens', component: PraticiensComponent,
@@ -66,7 +67,8 @@ export const ROUTES: Routes = [
     StorageServiceModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorsinterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorsinterceptorService, multi: true},
+    Gardservice
   ],
   bootstrap: [AppComponent]
 })

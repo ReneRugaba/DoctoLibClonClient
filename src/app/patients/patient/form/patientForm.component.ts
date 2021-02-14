@@ -26,7 +26,7 @@ export class patientFormComponent{
     this.service.updatepatient(this.patientClone.id, form).subscribe(response => {
       this.storage.set('currentUser', response);
       if (response){
-        window.location.reload();
+        location.reload();
       }
     });
   }

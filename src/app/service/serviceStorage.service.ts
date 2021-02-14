@@ -24,5 +24,10 @@ export class serviceStorage {
   remove(key: string){
     this.localStorage.removeItem(key);
   }
+
+  giveStatusUser(): boolean
+  {
+    return !!this.localStorage.getItem('token');
+  }
 }
 
